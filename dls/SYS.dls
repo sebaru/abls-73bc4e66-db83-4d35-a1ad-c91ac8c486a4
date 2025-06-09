@@ -1,0 +1,64 @@
+/****************************************************************************************************************/
+/* 01.dls -> Plugin SYSTEME . Ne pas effacer                                                 Print le 06/01/2012 */  
+/*                                                                                        Elaboré le 06/01/2012 */
+/*                                                                                     Mis à jour le 06/01/2012 */
+/*                                                                                               Par Seb        */
+/****************************************************************************************************************/
+
+ #define MSG_METEO_DU_JOUR <->_MSG(type=etat,libelle="Ce matin, il fait $METEO:PEATEMPMETEO_SCE ! Bonne journée !",notif_sms);
+ #define MSG_TEST          <-> _MSG(type=etat, libelle="$SYS:MON_REGISTRE 1 SYS Defaut_Page 1 debug message $SYS:MON_REGISTRE" );
+ #define VISUEL_TEST       <-> _I(forme="auto_manu");
+ #define MON_REGISTRE      <-> _R(libelle="registre test", unite="unité" /*, cadran="horaire"*/ );
+ #define MON_VISU_REGISTRE <-> _I(forme="cadran", mode="texte", input= MON_REGISTRE, libelle="mon visu registre", decimal=1, min=1.0, max=10.0, seuil_ntb=2.0, seuil_nb=2.5, seuil_nh=8.5, seuil_nth=9.0 );
+
+#define MON_COMPTEUR    <-> _CI(libelle="compteur test", unite="unit" );
+/* #define MON_PRESSOSTAT   <-> _I(forme="pressostat_0_6_bars", libelle="my pressos", input= MON_REGISTRE );
+ #define MON_PHMETRE      <-> _I(forme="phmetre_piscine", libelle="my pressos", input= MON_REGISTRE );
+ #define MON_AFFICHEUR    <-> _I(forme="afficheur_7seg", libelle="my pressos", input= MON_COMPTEUR );*/
+ #define MON_WTD          <-> _WATCHDOG(libelle="mon watchdog" );
+ #define MON_VISU_WTD     <-> _I(forme="cadran", mode="horaire", input= MON_WTD, libelle="mon visu wtd" );
+
+ #define MA_TEMPO         <-> _TEMPO(daa=100,libelle="ma tempo" );
+ #define MON_VISU_TEMPO   <-> _I(input= MA_TEMPO, libelle="mon visu tempo" );
+
+ #define VISUEL_LOAD      <-> _I(libelle="visuel_load", input=UPS01:LOAD);
+ #define MON_BISTABLE     <-> _B(libelle="mon bistable");
+ 
+ #param PARAM_TEST (libelle="default param value");
+ 
+ - TOP_1SEC -> { - MON_REGISTRE + 0.1 -> MON_REGISTRE; }
+ - TOP_1SEC -> MON_VISU_REGISTRE();
+
+
+
+ - TOP_5SEC -> MON_WTD(consigne=100);
+ - TOP_1SEC -> MON_VISU_WTD();
+
+ - FLIPFLOP_2SEC -> MA_TEMPO, MON_BISTABLE, MEMSA_DEFAUT;
+ -/FLIPFLOP_2SEC ->/MON_BISTABLE;
+ 
+ - TOP_1SEC -> MON_VISU_TEMPO();
+ 
+/* - _TRUE -> MON_PRESSOSTAT(libelle="mon objet");*/
+ 
+ - _HEURE = 07:30 -> MSG_METEO_DU_JOUR;
+ - _TRUE -> MEMSSB_VEILLE;
+
+ 
+/* - _TRUE -> MON_PRESSOSTAT;*/
+ 
+ /*- TOP_1SEC -> MON_COMPTEUR;*/
+  
+  - FLIPFLOP_2SEC -> MSG_TEST, VISUEL_TEST(mode="auto",color="grey", libelle="one");
+  -/FLIPFLOP_2SEC -> VISUEL_TEST(mode="manu",color="rdded", libelle="two");
+  
+/* exemple Watchdog 
+ #define CPT_A_REBOURG <-> _WATCHDOG(libelle="decompte avant tel action");
+ 
+ - condition -> CPT_A_REBOURG(consigne=600); positionne la consigne a 600 (une minute) si la condition est vraie
+ - CPT_A_REBOURG -> action; tant que le decompte n'est pas terminé
+ -/CPT_A_REBOURG -> action; si le decompte est terminé
+
+
+*/
+/*--------------------------------------------------------------------------------------------------------------*/
