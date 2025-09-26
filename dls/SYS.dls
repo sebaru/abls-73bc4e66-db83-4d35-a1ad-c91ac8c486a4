@@ -20,10 +20,14 @@
 
  #define MA_TEMPO         <-> _TEMPO(daa=100,libelle="ma tempo" );
  #define MON_VISU_TEMPO   <-> _I(input= MA_TEMPO, libelle="mon visu tempo" );
-
+ 
+ #define MY_EXEC          <-> _BUS(commande="ls");
+ 
  #define VISUEL_LOAD      <-> _I(libelle="visuel_load", input=UPS01:LOAD);
  #define MON_BISTABLE     <-> _B(libelle="mon bistable");
- 
+
+
+
  #param PARAM_TEST (libelle="default param value");
  
  - TOP_1SEC -> { - MON_REGISTRE + 0.1 -> MON_REGISTRE; }
@@ -34,7 +38,7 @@
  - TOP_5SEC -> MON_WTD(consigne=100);
  - TOP_1SEC -> MON_VISU_WTD();
 
- - FLIPFLOP_2SEC -> MA_TEMPO, MON_BISTABLE, MEMSA_DEFAUT;
+ - FLIPFLOP_2SEC -> MA_TEMPO, MON_BISTABLE, MEMSA_DEFAUT, MY_EXEC;
  -/FLIPFLOP_2SEC ->/MON_BISTABLE;
  
  - TOP_1SEC -> MON_VISU_TEMPO();
