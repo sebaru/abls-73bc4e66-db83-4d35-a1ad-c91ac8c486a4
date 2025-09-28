@@ -21,7 +21,7 @@
  #define MA_TEMPO         <-> _TEMPO(daa=100,libelle="ma tempo" );
  #define MON_VISU_TEMPO   <-> _I(input= MA_TEMPO, libelle="mon visu tempo" );
  
- #define MY_EXEC          <-> _BUS(commande="ls");
+ #define MY_EXEC          <-> _BUS(tech_id="anubis", commande="ls");
  
  #define VISUEL_LOAD      <-> _I(libelle="visuel_load", input=UPS01:LOAD);
  #define MON_BISTABLE     <-> _B(libelle="mon bistable");
