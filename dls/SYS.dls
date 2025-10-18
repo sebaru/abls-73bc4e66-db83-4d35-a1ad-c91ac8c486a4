@@ -29,41 +29,21 @@
 
 
  #param PARAM_TEST (libelle="default param value");
+
+ - _HEURE = 07:30 -> MSG_METEO_DU_JOUR;
+ - _TRUE -> MEMSSB_VEILLE;
  
- - TOP_1SEC -> { - MON_REGISTRE + 0.1 -> MON_REGISTRE; }
- - TOP_1SEC -> MON_VISU_REGISTRE();
-
-
-
  - TOP_5SEC -> MON_WTD(consigne=100);
- - TOP_1SEC -> MON_VISU_WTD();
+
+/* - TOP_1SEC -> MON_VISU_WTD();
 
  - TOP_5SEC -> MY_EXEC;
- - FLIPFLOP_2SEC -> MA_TEMPO, MON_BISTABLE, MEMSA_DEFAUT;
- -/FLIPFLOP_2SEC ->/MON_BISTABLE;
+ - FLIPFLOP_2SEC -> MA_TEMPO, MON_BISTABLE, MEMSA_DEFAUT, VISUEL_LOAD(badge="auto");
+ -/FLIPFLOP_2SEC ->/MON_BISTABLE, VISUEL_LOAD(badge="manu");
  
  - TOP_1SEC -> MON_VISU_TEMPO();
  
 /* - _TRUE -> MON_PRESSOSTAT(libelle="mon objet");*/
- 
- - _HEURE = 07:30 -> MSG_METEO_DU_JOUR;
- - _TRUE -> MEMSSB_VEILLE;
-
- 
-/* - _TRUE -> MON_PRESSOSTAT;*/
- 
- /*- TOP_1SEC -> MON_COMPTEUR;*/
-  
-  - FLIPFLOP_2SEC -> MSG_TEST, VISUEL_TEST(mode="auto",color="grey", libelle="one");
-  -/FLIPFLOP_2SEC -> VISUEL_TEST(mode="manu",color="rdded", libelle="two");
-  
-/* exemple Watchdog 
- #define CPT_A_REBOURG <-> _WATCHDOG(libelle="decompte avant tel action");
- 
- - condition -> CPT_A_REBOURG(consigne=600); positionne la consigne a 600 (une minute) si la condition est vraie
- - CPT_A_REBOURG -> action; tant que le decompte n'est pas terminé
- -/CPT_A_REBOURG -> action; si le decompte est terminé
 
 
-*/
 /*--------------------------------------------------------------------------------------------------------------*/
