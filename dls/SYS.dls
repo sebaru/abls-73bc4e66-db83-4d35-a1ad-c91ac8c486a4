@@ -23,7 +23,8 @@
  
  #define MY_EXEC          <-> _BUS(tech_id="anubis", commande="ls");
  
-
+ #define MY_B1        <-> _B(groupe=1,libelle="B1");
+ #define MY_B2        <-> _B(groupe=1,libelle="B2");
  #define MON_BISTABLE     <-> _B(libelle="mon bistable");
 
 
