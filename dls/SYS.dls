@@ -34,7 +34,8 @@
  - _HEURE = 07:30 -> MSG_METEO_DU_JOUR;
  - _TRUE -> MEMSSB_VEILLE;
  
- - TOP_5SEC -> MON_WTD(consigne=100), MSG_TEST;
+ - TOP_5SEC -> MON_WTD(consigne=100);
+ - FLIPFLOP_1SEC -> MSG_TEST;
 
  - TOP_1SEC -> MON_VISU_WTD();
 
