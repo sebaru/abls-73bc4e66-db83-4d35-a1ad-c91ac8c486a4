@@ -7,6 +7,7 @@
 
  #define MSG_METEO_DU_JOUR <->_MSG(type=etat,libelle="Ce matin, il fait $METEO:PEATEMPMETEO_SCE ! Bonne journée !",notif_sms);
  #define MSG_TEST          <-> _MSG(type=etat, libelle="$SYS:MON_REGISTRE 1 SYS Defaut_Page 1 debug message $SYS:MON_REGISTRE" );
+ #define MSG_TEST2         <-> _MSG(type=etat, libelle="$SYS:MON_REGISTRE 1 SYS Defaut_Page 1 debug message $SYS:MON_REGISTRE" );
  #define MSG_NOTIF         <-> _MSG(type=notification, libelle="ma notif $SYS:MON_REGISTRE" );
  #define VISUEL_TEST       <-> _I(forme="auto_manu");
  #define MON_REGISTRE      <-> _R(libelle="registre test", unite="unité" /*, cadran="horaire"*/ );
