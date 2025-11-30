@@ -7,6 +7,7 @@
 
  #define MSG_METEO_DU_JOUR <->_MSG(type=etat,libelle="Ce matin, il fait $METEO:PEATEMPMETEO_SCE ! Bonne journée !",notif_sms);
  #define MSG_TEST          <-> _MSG(type=etat, libelle="$SYS:MON_REGISTRE 1 SYS Defaut_Page 1 debug message $SYS:MON_REGISTRE" );
+ #define MSG_NOTIF         <-> _MSG(type=notification, libelle="ma notif $SYS:MON_REGISTRE" );
  #define VISUEL_TEST       <-> _I(forme="auto_manu");
  #define MON_REGISTRE      <-> _R(libelle="registre test", unite="unité" /*, cadran="horaire"*/ );
  #define MON_VISU_REGISTRE <-> _I(forme="cadran", mode="texte", input= MON_REGISTRE, libelle="mon visu registre", decimal=1, min=1.0, max=10.0, seuil_ntb=2.0, seuil_nb=2.5, seuil_nh=8.5, seuil_nth=9.0 );
@@ -35,7 +36,7 @@
  - _TRUE -> MEMSSB_VEILLE;
  
  - TOP_5SEC -> MON_WTD(consigne=100);
- - FLIPFLOP_1SEC -> MSG_TEST;
+ - FLIPFLOP_1SEC -> MSG_TEST, MSG_NOTIF;
 
  - TOP_1SEC -> MON_VISU_WTD();
 
