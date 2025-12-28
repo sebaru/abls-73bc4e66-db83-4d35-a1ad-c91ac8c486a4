@@ -17,7 +17,8 @@
  #define MON_PHMETRE      <-> _I(forme="phmetre_piscine", libelle="my pressos", input= MON_REGISTRE );
  #define MON_AFFICHEUR    <-> _I(forme="afficheur_7seg", libelle="my pressos", input= MON_COMPTEUR );*/
  #define MON_WTD          <-> _WATCHDOG(libelle="mon watchdog" );
- #define MON_VISU_WTD     <-> _I(forme="cadran", mode="horaire", input= MON_WTD, libelle="mon visu wtd" );
+ #define MON_VISU_WTD_UNUSED <-> _I(forme="cadran", mode="horaire", input= MON_WTD, libelle="mon visu wtd" );
+ #define MON_VISU_WTD_USED   <-> _I(forme="cadran", mode="horaire", input= MON_WTD, libelle="mon visu wtd" );
 
  #define MA_TEMPO         <-> _TEMPO(daa=100,libelle="ma tempo" );
  #define MON_VISU_TEMPO   <-> _I(input= MA_TEMPO, libelle="mon visu tempo" );
@@ -38,7 +39,7 @@
  - TOP_5SEC -> MON_WTD(consigne=100);
  - FLIPFLOP_1SEC -> MSG_TEST, MSG_NOTIF;
 
- - TOP_1SEC -> MON_VISU_WTD();
+ - TOP_1SEC -> MON_VISU_WTD_USED();
 
  - TOP_5SEC -> MY_EXEC;
 
