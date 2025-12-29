@@ -37,8 +37,8 @@
  - _TRUE -> MEMSSB_VEILLE;
  
  - TOP_5SEC -> MON_WTD(consigne=100);
- - FLIPFLOP_1SEC -> VISUEL_TEST(mode="auto"), MSG_TEST, MSG_NOTIF;
- -/FLIPFLOP_1SEC -> VISUEL_TEST(mode="manu");
+ - FLIPFLOP_2SEC -> VISUEL_TEST(mode="auto"), MSG_TEST, MSG_NOTIF;
+ -/FLIPFLOP_2SEC -> VISUEL_TEST(mode="manu");
 
  - TOP_1SEC -> MON_VISU_WTD_USED();
 
