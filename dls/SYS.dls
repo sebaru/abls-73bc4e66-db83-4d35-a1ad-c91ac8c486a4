@@ -12,10 +12,7 @@
  #define MON_REGISTRE      <-> _R(libelle="registre test", unite="unité" /*, cadran="horaire"*/ );
  #define MON_VISU_REGISTRE <-> _I(forme="cadran", mode="texte", input= MON_REGISTRE, libelle="mon visu registre", decimal=1, min=1.0, max=10.0, seuil_ntb=2.0, seuil_nb=2.5, seuil_nh=8.5, seuil_nth=9.0 );
 
-#define MON_COMPTEUR    <-> _CI(libelle="compteur test", unite="unit" );
-/* #define MON_PRESSOSTAT   <-> _I(forme="pressostat_0_6_bars", libelle="my pressos", input= MON_REGISTRE );
- #define MON_PHMETRE      <-> _I(forme="phmetre_piscine", libelle="my pressos", input= MON_REGISTRE );
- #define MON_AFFICHEUR    <-> _I(forme="afficheur_7seg", libelle="my pressos", input= MON_COMPTEUR );*/
+ #define MON_COMPTEUR    <-> _CI(libelle="compteur test", unite="unit" );
  #define MON_WTD          <-> _WATCHDOG(libelle="mon watchdog" );
  #define MON_VISU_WTD_UNUSED <-> _I(forme="cadran", mode="horaire", input= MON_WTD, libelle="mon visu wtd" );
  #define MON_VISU_WTD_USED   <-> _I(forme="cadran", mode="horaire", input= MON_WTD, libelle="mon visu wtd" );
@@ -43,7 +40,8 @@
  - TOP_1SEC -> MON_VISU_WTD_USED();
 
  - TOP_5SEC -> MY_EXEC;
-
+ - TOP_1SEC -> { - MON_REGISTRE + 1.0 -> MON_REGISTRE; }
+ 
  - VISUEL_TEST_CLIC + VISUEL_TEST_LONGCLIC ->
   { - FLIPFLOP_2SEC -> MA_TEMPO, MON_BISTABLE, MEMSA_DEFAUT, VISUEL_TEST(badge="none");
     -/FLIPFLOP_2SEC ->/MON_BISTABLE, VISUEL_TEST(badge="lock");
