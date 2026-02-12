@@ -15,7 +15,7 @@
 
  #define VISUEL_TEST       <-> _I(forme="auto_manu");
  #define MON_REGISTRE      <-> _R(libelle="registre test", unite="unit" /*, cadran="horaire"*/ );
- #define MON_VISU_REGISTRE <-> _I(forme="cadran", mode="texte", input= MON_REGISTRE, libelle="mon visu registre", /*decimal=1, */min=1.0, max=10.0, seuil_ntb=2.0, seuil_nb=2.5, seuil_nh=8.5, seuil_nth=9.0 );
+ #define MON_VISU_REGISTRE <-> _I(forme="cadran", mode="texte", input= MON_REGISTRE, libelle="mon visu registre", decimal=4, min=1.0, max=10.0, seuil_ntb=2.0, seuil_nb=2.5, seuil_nh=8.5, seuil_nth=9.0 );
 
  #define MON_COMPTEUR    <-> _CI(libelle="compteur test", unite="unit" );
  #define MON_WTD          <-> _WATCHDOG(libelle="mon watchdog" );
