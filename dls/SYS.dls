@@ -39,7 +39,7 @@
 
  #param PARAM_TEST (libelle="default param value");
 
- - _HEURE = 07:30 -> MSG_METEO_DU_JOUR;
+ /*- _HEURE = 07:30 -> MSG_METEO_DU_JOUR;*/
  - _TRUE -> MEMSSB_VEILLE;
  
  - _TRUE-> MSG_DYNAMIQUE, MSG_NOTIF_DYNAMIQUE;
