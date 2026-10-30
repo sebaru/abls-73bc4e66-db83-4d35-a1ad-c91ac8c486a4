@@ -22,7 +22,7 @@
 
  - IO_COMM -> VISU_THREAD(mode="checked", libelle="ANUBIS connecté");
  -/IO_COMM -> MEMSA_DEFAUT, MEMSSP_DANGER,
-              VISU_THREAD(mode="unchecked", cligno, libelle="ANUBIS déconnecté"),
+              VISU_THREAD(mode="unchecked", libelle="ANUBIS déconnecté"),
               MSG_COMM_NOK;
 
 /* Pilotage des bits de remontées */
