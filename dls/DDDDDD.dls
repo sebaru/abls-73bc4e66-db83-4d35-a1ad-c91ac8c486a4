@@ -10,6 +10,12 @@
  #define IO_COMM      <-> _WATCHDOG(libelle="Etat communication avec le Phidget DDDDDD");
  #define MSG_COMM_NOK <-> _MSG(type=danger, libelle="Unité PHIDGET DDDDDD hors service", notif_sms=no, notif_chat=yes );
 
+/* Bits communs créés par chaque agent */
+ #define TOUR_PAR_SEC    <-> _AI(libelle="Nombre de tours par seconde");
+ #define MEMORY_RSS      <-> _AI(libelle="Mémoire RSS");
+ #define MEMORY_VIRTUAL  <-> _AI(libelle="Mémoire virtuelle");
+ #define LOG_PAR_MIN     <-> _AI(libelle="Logs par minute");
+
 /*----------------------------------------------------------------------------------------------------------------------------*/
 
 /*------------------------------------------ Définition des bits locaux au module --------------------------------------------*/
@@ -19,7 +25,7 @@
 
  - IO_COMM -> VISU_PHIDGET(mode="checked", libelle="DDDDDD connecté"); /* Si le thread dit que le PHIDGET est UP, on l'affiche */
  -/IO_COMM -> MEMSA_DEFAUT, MEMSSP_DANGER,
-              VISU_PHIDGET(mode="unchecked", cligno, libelle="DDDDDD déconnecté"),
+              VISU_PHIDGET(mode="unchecked", libelle="DDDDDD déconnecté"),
               MSG_COMM_NOK;
 
 /* Pilotage des bits de remontées */
